@@ -133,7 +133,7 @@ jobs:
           RESIZE: ${{ inputs.resize }}
           MULTI_ARCH: ${{ inputs.multi_arch }}
           TARGETS: ${{ inputs.targets }}
-
+          SAFE-DOMAIN: chat.zalo.me,id.zalo.me
       - name: Upload archive
         uses: actions/upload-artifact@v3
         with:
