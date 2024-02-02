@@ -92,6 +92,10 @@ jobs:
           packages: libwebkit2gtk-4.0-dev build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev gnome-video-effects gnome-video-effects-extra
           version: 1.1
 
+      - name: Modify Cargo.toml
+        run: |
+          sed -i 's/\[profile.release\]/&\nopt-level = 3\ndebug = false\nlto = true\nembed-bitcode = true\noverflow-checks = true\ntarget-cpu = "x86-64-v3"/' Cargo.toml
+
       - name: Install pake-cli local
         shell: bash
         run: |
